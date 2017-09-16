@@ -1,3 +1,4 @@
+//partitionË¼Ïë¿ìÅÅ
 #include<iostream>
 #include<time.h>
 #include<stdlib.h>
