@@ -19,7 +19,7 @@ int Min(int *numbers, int length)
 {
     int index1 = 0;
     int index2 = length - 1;
-    int MidIndex = index1;
+    int MidIndex = index1;  //当不满足while循环条件时，证明数组本身有序，直接返回第一个元素，即是最小元素
 
     if (numbers == NULL || length <= 0)
         return -1;
@@ -48,7 +48,7 @@ int Min(int *numbers, int length)
     return numbers[MidIndex];
 }
 
-void test1()
+void test1()    //一般测试样例
 {
     int numbers[] = {3,4,5,1,2};
     cout << Min(numbers, 5) << endl;
@@ -65,11 +65,19 @@ void test3()    //测试样例3，测试index1， index2， MidIndex 相等
     int numbers[] = {1,0,1,1,1};
     cout << Min(numbers, 5) << endl;
 }
+
+void test4()
+{
+    int numbers[] = {1,2,3,4,5};
+    cout << Min(numbers, 5);
+}
+
 int main()
 {
     test1();
     test2();
     test3();
+    test4();
 
     return 0;
 }
