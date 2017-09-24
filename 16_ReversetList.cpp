@@ -1,3 +1,4 @@
+//三指针滑动法
 #include<iostream>
 
 using namespace std;
@@ -18,7 +19,7 @@ ListNode* ReversetList(ListNode* pHead)
     {
         ListNode *pNext = pNode->m_pNext;
 
-        if (pNext == NULL)
+        if (pNext == NULL)  //到达最后一个赋给新链表头部
             pNewHead = pNode;
 
         pNode->m_pNext = pPrev;

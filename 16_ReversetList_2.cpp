@@ -1,3 +1,4 @@
+//遍历链表将每个节点在头部插入
 #include<iostream>
 
 using namespace std;
