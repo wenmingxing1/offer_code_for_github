@@ -8,8 +8,8 @@ public:
     void printMatrix(vector<vector<int> > matrix) {
         int rows = matrix.size();
         int columns = matrix[0].size();
-        //if (rows <= 0 && columns <= 0)
-        //    return;
+        if (rows <= 0 && columns <= 0)
+            return;
 
         int start = 0;
         while (rows > start * 2 && columns > start * 2){
