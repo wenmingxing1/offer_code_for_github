@@ -29,7 +29,7 @@ private:
         int Left = TreeDepth(pRoot->left);
         int Right = TreeDepth(pRoot->right);
 
-        return (Left >= Right) ? (Left + 1) : (Right + 1);
+        return (Left >= Right) ? (Left + 1) : (Right + 1);  //更新深度
     }
 };
 
@@ -39,6 +39,27 @@ class Solution2
 public:
     bool IsBalancedTree(TreeNode* pRoot)
     {
-
+        int Depth = 0;
+        return IsBalanced(pRoot, Depth);
+    }
+private:
+    bool IsBalanced(TreeNode* pRoot, int& depth)    //必须将depth设置为引用，因为在遍历过程中depth需要改变
+    {
+        if (pRoot == NULL)  //递归结束条件
+        {
+            depth = 0;
+            return true;
+        }
+        int left = right = 0;
+        if (IsBalanced(pRoot->left, left) && IsBalanced(pRoot->right, right))
+        {
+            int diff = left - right;
+            if (diff <= 1 && diff >= -1)
+            {
+                depth = 1 + (left>right?left:right);    //更新depth
+                return true;
+            }
+        }
+        return false;
     }
 };
