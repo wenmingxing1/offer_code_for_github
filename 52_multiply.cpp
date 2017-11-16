@@ -5,7 +5,7 @@ using namespace std;
 class Solution {
 public:
     //将数组分为两部分
-    vector<int> multiply(const vector<int>& A) {
+    vector<int> multiply1(const vector<int>& A) {
     	int length = A.size();
     	vector<int> result(length);
         if (length <= 0)
@@ -24,6 +24,26 @@ public:
             temp = temp * A[i];
         }
         return result;
+    }
+
+    //同样是分为两组，可读性更好的代码
+    vector<int> multiply(const vector<int>& A) {
+        int count = A.size();
+    	vector<int> res(count, 1);
+        vector<int> left(count, 1);
+        vector<int> right(count, 1);
+
+        for (int i = 1; i < count; ++i){
+            left[i] = left[i-1] * A[i-1];
+        }
+        for (int i = count - 2; i >= 0; --i){
+            right[i] = right[i+1] * A[i+1];
+        }
+
+        for (int i = 0; i < count; ++i){
+            res[i] = left[i] * right[i];
+        }
+        return res;
     }
 };
 
