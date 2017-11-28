@@ -8,16 +8,14 @@ public:
         int length = data.size();
         if (length <= 0)
             return 0;
-        vector<int> copy;
-        for (int i = 0; i < length; ++i){
-            copy.push_back(data[i]);
-        }
+        vector<int> copy(length);
+
         int count = InversePairsCore(data, copy, 0 ,length - 1);
-        return count % 1000000007;
+        return count;
     }
 private:
     int InversePairsCore(vector<int> &data, vector<int> &copy, int start, int end){
-        if (start == end){		//递归结束条件
+        if (start == end){		//递归结束条件,当只有一个数时返回
             copy[start] = data[start];		//将最后数据存入copy中
             return 0;
         }
