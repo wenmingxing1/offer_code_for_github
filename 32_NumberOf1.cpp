@@ -3,6 +3,7 @@ using namespace std;
 
 class Solution {
 public:
+    //暴力法，会超时
     int NumberOf1Between1AndN_Solution(int n)
     {
     	int result = 0;
