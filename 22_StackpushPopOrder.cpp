@@ -13,7 +13,7 @@ public:
             int pPush = 0, pPop = 0;
             std::stack<int> stackData;
             while (pPop < popV_size){
-                while (stackData.empty() || stackData.top() != popV[pPop]){ //在pushV中寻找popV中的数
+                while (stackData.empty() || stackData.top() != popV[pPop]){ //在pushV中寻找popV中的数,需要判断栈的起始状态为空的情况
                     if (pPush == pushV_size)    //都没有找到
                         break;
                     stackData.push(pushV[pPush]);   //将找到之前的数压入临时栈
