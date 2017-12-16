@@ -24,7 +24,7 @@ ListNode* FindKthToTail(ListNode* pListHead, int k)
         {
             pAhead = pAhead->m_pNext;
         }
-        else
+        else       //证明k超出了链表长度
         {
             return NULL;
         }
