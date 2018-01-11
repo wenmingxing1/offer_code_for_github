@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//ÅĞ¶ÏÁ½¸ödoubleÊÇ·ñÏàµÈ
+//åˆ¤æ–­ä¸¤ä¸ªdoubleæ˜¯å¦ç›¸ç­‰
 bool Equal(double num1, double num2)
 {
     if ((num1 - num2 > -0.0000001) && (num1 - num2 < 0.0000001))
@@ -14,7 +14,7 @@ bool Equal(double num1, double num2)
         return false;
 }
 
-//³£¹æpower
+//å¸¸è§„power
 double PowerNormal(double base, unsigned int exponent)
 {
     double result = 1.0;
@@ -25,22 +25,22 @@ double PowerNormal(double base, unsigned int exponent)
     return result;
 }
 
-/*=============ÓÅ»¯¼ÆËã´ÎÊıµÄPowerNormal===================*/
+/*=============ä¼˜åŒ–è®¡ç®—æ¬¡æ•°çš„PowerNormal===================*/
 double PowerNormal_opt(double base, int exponent)
 {
     if (exponent == 0)
-        return 0;
+        return 1.0;
     if (exponent == 1)
         return base;
-    double result = PowerNormal_opt(base, exponent >> 1);   //ÓÒÒÆµÈ¼ÛÓÚ³ıÒÔ2
-    result *= result;   //Èç¹ûÊÇÅ¼ÊıÔòÆ½·½
-    if (exponent & 0x1 == 1)    //Óë1ÏàÓëÏàµ±ÓÚÇó%£¨×îºóÒÔÎª²»ÊÇ1ÔòÊÇÆæÊı£©
-        result *= base;     //Èç¹ûÊÇÆæÊı£¬ÔòÔÙ³ËÒÔÒ»¸öbase
+    double result = PowerNormal_opt(base, exponent >> 1);   //å³ç§»ç­‰ä»·äºé™¤ä»¥2
+    result *= result;   //å¦‚æœæ˜¯å¶æ•°åˆ™å¹³æ–¹
+    if (exponent & 0x1 == 1)    //ä¸1ç›¸ä¸ç›¸å½“äºæ±‚%ï¼ˆæœ€åä»¥ä¸ºä¸æ˜¯1åˆ™æ˜¯å¥‡æ•°ï¼‰
+        result *= base;     //å¦‚æœæ˜¯å¥‡æ•°ï¼Œåˆ™å†ä¹˜ä»¥ä¸€ä¸ªbase
 
     return result;
 }
 
-//¿¼ÂÇÌØÊâÇé¿öÏÂµÄpower
+//è€ƒè™‘ç‰¹æ®Šæƒ…å†µä¸‹çš„power
 double Power(double base, int exponent)
 {
 
@@ -49,7 +49,7 @@ double Power(double base, int exponent)
 
     if (Equal(base, 0.0) && exponent < 0)
     {
-        cout << "Invaild input!(Ö¸ÊıÎª¸ºÊı£¬µ×Êı²»ÄÜÎª0)" << endl;
+        cout << "Invaild input!(æŒ‡æ•°ä¸ºè´Ÿæ•°ï¼Œåº•æ•°ä¸èƒ½ä¸º0)" << endl;
         return 0.0;
     }
 
